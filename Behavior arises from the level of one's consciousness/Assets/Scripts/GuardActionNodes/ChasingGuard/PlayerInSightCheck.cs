@@ -1,11 +1,11 @@
-﻿public class PlayerIsVisibleCheck : Node
+﻿public class PlayerInSightCheck : Node
 {
     public Guard guard;
 
     public override NodeState Run()
     {
         NodeState nodeState = NodeState.FAILURE;
-        if(guard.CheckPlayerInSight())
+        if(guard.sensing.CheckPlayerInSight())
         {
             nodeState = NodeState.SUCCESS;
         }

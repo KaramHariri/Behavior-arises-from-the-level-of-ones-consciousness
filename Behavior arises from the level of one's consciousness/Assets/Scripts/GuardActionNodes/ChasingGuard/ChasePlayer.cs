@@ -1,12 +1,13 @@
-﻿public class ChasePlayer : Node
+﻿
+public class ChasePlayer : Node
 {
     public Guard guard;
 
     public override NodeState Run()
     {
         NodeState nodeState = NodeState.SUCCESS;
-        guard.Chase();
-        if (guard.transform.position != guard.player.position)
+        guard.guardMovement.ChasePlayer();
+        if (guard.transform.position != PlayerController.position)
         {
             nodeState = NodeState.RUNNING;
         }

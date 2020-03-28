@@ -13,10 +13,12 @@ GameObject:
   - component: {fileID: 1918111922424801113}
   - component: {fileID: 1918111922424801112}
   - component: {fileID: 1918111922424801119}
+  - component: {fileID: 8204550758532824139}
   - component: {fileID: 1107846569015101316}
+  - component: {fileID: 1550627984824461656}
   m_Layer: 0
   m_Name: ChasingGuard
-  m_TagString: Untagged
+  m_TagString: Guard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,15 +111,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  targetToMoveTo: {fileID: 0}
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  fieldOfView: 90
-  viewDistance: 10
+  fieldOfViewAngle: 90
+  playerInSight: 0
+  canHear: 0
+  suspicious: 0
+  navMeshAgent: {fileID: 0}
+  gameController: {fileID: 0}
+  patrolScript: {fileID: 0}
+  playerSoundSubject: {fileID: 11400000, guid: 030433a9eda85e04792ee66f1cb82771, type: 2}
+--- !u!114 &8204550758532824139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918111922424801118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb784bb48fb96b4091caadae506a1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   pathHolder: {fileID: 0}
   path: []
   currentWayPoint: {x: 0, y: 0, z: 0}
   wayPointIndex: 0
+  talkingTimer: 0
+  maxTalkingTimer: 5
+  idleTimer: 0
+  maxIdletimer: 5
+  allGuard: []
 --- !u!195 &1107846569015101316
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -127,7 +153,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1918111922424801118}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -140,3 +166,16 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &1550627984824461656
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918111922424801118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
